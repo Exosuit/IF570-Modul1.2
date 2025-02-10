@@ -38,6 +38,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material3.Icon
+import androidx.compose.material3.Scaffold
 
 
 class MainActivity : ComponentActivity() {
@@ -264,6 +265,17 @@ private fun SootheBottomNavigation(modifier: Modifier = Modifier) {
             selected = false,
             onClick = {}
         )
+    }
+}
+
+@Composable
+fun MySootheAppPortrait() {
+    MySootheTheme {
+        Scaffold(
+            bottomBar = { SootheBottomNavigation() }
+        ) { padding ->
+            HomeScreen(Modifier.padding(padding))
+        }
     }
 }
 
