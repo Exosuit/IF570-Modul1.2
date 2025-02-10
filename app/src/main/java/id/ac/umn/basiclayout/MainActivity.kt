@@ -36,6 +36,8 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material3.Icon
 
 
 class MainActivity : ComponentActivity() {
@@ -228,6 +230,41 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         text = "Hello $name!",
         modifier = modifier
     )
+}
+
+@Composable
+private fun SootheBottomNavigation(modifier: Modifier = Modifier) {
+    NavigationBar(
+        containerColor = MaterialTheme.colorScheme.surfaceVariant,
+        modifier = modifier
+    ) {
+        NavigationBarItem(
+            icon = {
+                Icon(
+                    imageVector = Icons.Default.Spa,
+                    contentDescription = null
+                )
+            },
+            label = {
+                Text(stringResource(R.string.bottom_navigation_home))
+            },
+            selected = true,
+            onClick = {}
+        )
+        NavigationBarItem(
+            icon = {
+                Icon(
+                    imageVector = Icons.Default.AccountCircle,
+                    contentDescription = null
+                )
+            },
+            label = {
+                Text(stringResource(R.string.bottom_navigation_profile))
+            },
+            selected = false,
+            onClick = {}
+        )
+    }
 }
 
 @Preview(showBackground = true)
