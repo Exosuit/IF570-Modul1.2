@@ -28,6 +28,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.foundation.layout.PaddingValues
 
 
 class MainActivity : ComponentActivity() {
@@ -142,6 +143,21 @@ fun AlignYourBodyElementPreview() {
             drawable = R.drawable.ab1_inversions,
             modifier = Modifier.padding(8.dp)
         )
+    }
+}
+
+@Composable
+fun AlignYourBodyRow(
+    modifier: Modifier = Modifier
+) {
+    LazyRow(
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        contentPadding = PaddingValues(horizontal = 16.dp),
+        modifier = modifier
+    ) {
+        items(alignYourBodyData) { item ->
+            AlignYourBodyElement(item.drawable, item.text)
+        }
     }
 }
 
